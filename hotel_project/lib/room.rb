@@ -1,29 +1,25 @@
 class Room
 
+    attr_reader :capacity, :occupants
+
     def initialize(capacity)
         @occupants = []
         @capacity = capacity
     end
 
-    def capacity
-        @capacity
-    end
-
-    def occupants
-        @occupants
-    end
-
     def full?
-        @occupants.length < @capacity
+        @occupants.length >= @capacity
     end
 
     def available_space
-        @capacity - @occupants
+        @capacity - @occupants.length
     end
 
     def add_occupant(name)
-        @occupants << name if !self.full
-        !self.full
+        if !self.full?
+            @occupants << name
+            return true
+        end
+        false
     end
-
 end
