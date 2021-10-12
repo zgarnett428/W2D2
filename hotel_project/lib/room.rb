@@ -5,7 +5,7 @@ class Room
     def initialize(capacity)
         @occupants = []
         @capacity = capacity
-    end
+    end        
 
     def full?
         @occupants.length >= @capacity
